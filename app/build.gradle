@@ -45,14 +45,20 @@ tasks.named('test') {
 
 // Tasks
 
-defaultTasks 'build'
-
 tasks.javadoc.doFirst {
     println 'Exporting javadoc under `./build/docs/javadoc`...'
 }
 
 tasks.build.doFirst {
     println 'Building...'
+}
+
+tasks.build.dependsOn('jar')
+tasks.build.dependsOn('test')
+tasks.build.dependsOn('sonarqube')
+
+tasks.sonarqube.doFirst {
+    println 'Scanning with sonarqube...'
 }
 
 tasks.run.doFirst {
@@ -91,4 +97,9 @@ task sonarUp(type:Exec) {
 task sonarDown(type:Exec) {
     workingDir '..'
     commandLine 'docker-compose', 'down'
+}
+
+task sonarToken(type:Exec) {
+    workingDir '..'
+    commandLine 'curl', '-X POST', '-u admin:abc', '-F "name=' + UUID.randomUUID().toString() + '"', 'http://localhost:9000/api/user_tokens/generate'
 }
