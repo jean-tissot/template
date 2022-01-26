@@ -1,17 +1,18 @@
 # DS Gen Li & Jean Tissot
 
-## Instruction of use
+## Instructions of use
 
 - `gradle run` to run the project
 - `gradle test` to run the tests
 - `gradle openJavadoc` to generate and open the javadoc (`gradle javadoc` to only generate the javadoc)
-- `gradle build` to generate the jar, run the tests and start sonarqube scan
+- `gradle sonarqube` to run a sonarqube scan
+- `gradle build` to generate the jar, run the tests and start a sonarqube scan
 
 Before runing the sonarqube scan you need to start the sonarqube server with `gradle sonarUp` (you need to have docker-compose installed on your computer).  
 **Warning!** Before starting sonarqube server you need to set the _wm.max_map_count_ host parameter to 262144 (this change is not persistent over reboot):
 
 - On linux `sudo sysctl -w vm.max_map_count=262144`
-- On Mac with Docker toolbox `docker-machine ssh`, then `sudo sysctl -w vm.max_map_count=262144` and `exit`
+- On Mac with Docker toolbox `docker-machine ssh`, `sudo sysctl -w vm.max_map_count=262144` and `exit`
 - On Mac with Docker for Mac `screen ~/Library/Containers/com.docker.docker/Data/vms/0/tty` and `sysctl -w vm.max_map_count=262144`
 - On Windows `wsl -d docker-desktop` and `sysctl -w vm.max_map_count=262144`
 
