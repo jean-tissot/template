@@ -20,6 +20,9 @@ Before runing a sonarqube scan you need to start the sonarqube server with `grad
 
 On Linux you can avoid that by simply running `make sonar_up` (or `make su`) which set the host parameter if needed and starts the sonarqube server.
 
-The first time you start the sonarqube server, you need to get a sonarqube token (with `make get_sonar_token` or `make gst`) and to put it in the gradle.properties file
+The first time you start the sonarqube server, you need to get a sonarqube token (with `make get_sonar_token` or `make gst`) and to put it in the gradle.properties file.  
+**Warning!** If you changed the sonarqube default password (in the web interface) you need to change it in the makefile too (in order to get the token)
 
 To shutdown the sonarqube server, run `gradle sonarDown` (you can also use `make sonar_down` or `make sd`).
+
+To access sonarqube scan resutls you need to go to http://localhost:9000. Default credentials are `admin` - `admin`.
