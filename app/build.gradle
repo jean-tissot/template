@@ -82,3 +82,13 @@ task javadocOpen(type:Exec) {
         commandLine 'open', 'index.html'
     }
 }
+
+task sonarUp(type:Exec) {
+    workingDir '..'
+    commandLine 'docker-compose', 'up', '-d'
+}
+
+task sonarDown(type:Exec) {
+    workingDir '..'
+    commandLine 'docker-compose', 'down'
+}
