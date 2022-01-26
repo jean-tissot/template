@@ -20,4 +20,6 @@ Before runing a sonarqube scan you need to start the sonarqube server with `grad
 
 On Linux you can avoid that by simply running `make sonar_up` (or `make su`) which set the host parameter if needed and starts the sonarqube server.
 
+The first time you start the sonarqube server, you need to get a sonarqube token (with `make get_sonar_token` or `make gst`) and to put it in the gradle.properties file
+
 To shutdown the sonarqube server, run `gradle sonarDown` (you can also use `make sonar_down` or `make sd`).
