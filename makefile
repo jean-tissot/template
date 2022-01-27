@@ -21,6 +21,3 @@ sd sonar_down:
 gst get_sonar_token:
 	@curl -X POST -u admin:$(or $(subst get_sonar_token ,,$(subst gst ,,$(MAKECMDGOALS))), admin) -F "name=`uuidgen`" http://localhost:9000/api/user_tokens/generate
 	@echo
-
-test:
-	@echo $(or $(subst test ,,$(MAKECMDGOALS)), admin)

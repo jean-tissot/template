@@ -10,7 +10,13 @@ NB: all the `gradle` commands can be replaced by a `./gradlew` one if you don't 
 - `gradle sonarqube` to run a sonarqube scan
 - `gradle build` to generate the jar, run the tests and start a sonarqube scan
 
-Before runing a sonarqube scan you need to start the sonarqube server with `gradle sonarUp` (you need to have docker-compose installed on your computer).  
+Before runing a sonarqube scan you need to start a sonarqube server and set some properties in the _gradle.properties_ file (See Sonarqube server part below).
+
+## Sonarqube server
+
+### Integrated sonarqube server
+
+You can start a sonarqube server with `gradle sonarUp` (you need to have docker-compose installed on your computer).  
 **Warning!** Before starting sonarqube server you need to set the _wm.max_map_count_ host parameter to 262144 (this change is not persistent over reboot):
 
 - On linux `sudo sysctl -w vm.max_map_count=262144`
@@ -26,3 +32,11 @@ The first time you start the sonarqube server, you need to get a sonarqube token
 To shutdown the sonarqube server, run `gradle sonarDown` (you can also use `make sonar_down` or `make sd`).
 
 To access sonarqube scan resutls you need to go to http://localhost:9000. Default credentials are `admin` - `admin`.
+
+### Other sonarqube server
+
+If you choose to use another sonarqube server, you should set url and token in the _gradle.properties_
+
+## Q-A
+
+→ to complete
